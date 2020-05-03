@@ -1,0 +1,7 @@
+Flask==1.0.2
+PyYAML>=4.2b1
+python-http-client>=3.2.1
+six==1.11.0
+pytest==3.8.2
+cloudinary
+sendgrid
