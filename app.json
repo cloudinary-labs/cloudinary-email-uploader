@@ -1,11 +1,11 @@
 {
-  "name": "Twilio SendGrid Inbound Parse",
-  "description": "Consume and parse POSTs from Twilio SendGrid's Inbound Parse Webhook",
+  "name": "Cloudinary's Email uploader",
+  "description": "parse incoming webhook from sendgrid and upload them into your cloudinary account",
   "keywords": [
     "sendgrid",
     "inbound parse"
   ],
-  "website": "http://www.sendgrid.com",
-  "repository": "https://github.com/sendgrid/sendgrid-python/tree/master",
-  "logo": "https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_RGBx1.png"
+  "website": "http://www.cloudinary.com",
+  "repository": "https://github.com/talknopf/cloudinary-email-uploader",
+  "logo": ""
 }
