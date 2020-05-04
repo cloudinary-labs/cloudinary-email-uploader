@@ -1,1 +1,1 @@
-web: python sendgrid/helpers/inbound/app.py
+web: python cld-email-uploader.py
