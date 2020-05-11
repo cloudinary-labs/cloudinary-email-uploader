@@ -54,3 +54,4 @@ Looking at the what you are looking to achive you can do one of two things:
 	pip install -r requirements.txt
 	python cld-email-uploader.py
 	```
+	The local development environment will utilize port 80
