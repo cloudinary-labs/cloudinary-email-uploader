@@ -1,27 +1,13 @@
-"""Receiver module for processing SendGrid Inbound Parse messages.
-
-See README.txt for usage instructions."""
-# try:
-#     from config import Config
-# except:
-#     # Python 3+, Travis
-#     from sendgrid.helpers.inbound.config import Config
-import sendgrid
-# from sendgrid import Config, Parse 
-from sendgrid.helpers.inbound.config import Config
-from sendgrid.helpers.inbound.parse import Parse
-# try:
-#     from parse import Parse
-# except:
-#     # Python 3+, Travis
-#     from sendgrid.helpers.inbound.parse import Parse
-
 from flask import Flask, request, render_template
 import os
 import json
+
 import cloudinary
 import cloudinary.uploader
 
+import sendgrid
+from sendgrid.helpers.inbound.config import Config
+from sendgrid.helpers.inbound.parse import Parse
 
 app = Flask(__name__)
 config = Config()
@@ -52,7 +38,7 @@ def inbound_parse():
                     try:
                         r = cloudinary.uploader.unsigned_upload(
                             'data:'+attachment['type']+';base64,'+attachment['contents'],
-                            'email_uploader',
+                            upload_preset,
                             public_id=attachment['file_name'],
                             cloud_name = cloudname
                         )
@@ -70,5 +56,6 @@ def inbound_parse():
 
 if __name__ == '__main__':
   port = int(os.environ.get('PORT', 80))
+  upload_preset = str(os.environ.get('UP_PRESET', 'email_uploader'))
   print ("app will run on port:", port)
   app.run(host='0.0.0.0', port=port)
