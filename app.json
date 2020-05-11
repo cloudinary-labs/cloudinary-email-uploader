@@ -1,18 +1,25 @@
 {
-  "name": "Cloudinary's Email uploader",
-  "description": "parse incoming webhook from sendgrid and upload them into your cloudinary account",
-  "keywords": [
-    "sendgrid",
-    "inbound parse"
-  ],
-  "website": "http://www.cloudinary.com",
-  "repository": "https://github.com/talknopf/cloudinary-email-uploader",
-  "logo": "https://res.cloudinary.com/cloudinary/image/upload/b_rgb:ffffff,c_scale,w_200/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png",	
-  "env": {
+	"name": "Cloudinary's Email uploader",
+	"description": "parse incoming webhook from sendgrid and upload them into your cloudinary account",
+	"keywords": [
+	"sendgrid",
+	"inbound parse"
+	],
+	"website": "http://www.cloudinary.com",
+	"repository": "https://github.com/talknopf/cloudinary-email-uploader",
+	"logo": "https://res.cloudinary.com/cloudinary/image/upload/b_rgb:ffffff,c_scale,w_200/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png",	
+	"env": {
 	"UP_PRESET": {
 		"description": "The name of the upload preset you created within you cloudianry acoount",
 		"value" : "email_uploader",
 		"required": "true"
 		}
-	}
+	},
+	"addons": [
+	    "sendgrid",
+		    {
+		      "plan": "sendgrid:starter",
+		      "as": "Sendgrid"
+		    }
+	]
 }
