@@ -16,10 +16,9 @@
 		}
 	},
 	"addons": [
-	    "sendgrid",
-		    {
-		      "plan": "sendgrid:starter",
-		      "as": "Sendgrid"
-		    }
+		{
+		"plan": "sendgrid:starter",
+		"as": "Sendgrid"
+		}
 	]
 }
