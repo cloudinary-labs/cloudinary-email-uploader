@@ -12,6 +12,6 @@
     "UP_PRESET": {
       "description": "The name of the upload preset you created within you cloudianry acoount",
       "value" : "email_uploader",
-      "required": true
+      "required": "true"
     }
 }
