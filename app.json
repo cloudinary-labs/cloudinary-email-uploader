@@ -28,6 +28,6 @@
 	],
 	"scripts": {
 			"postdeploy": "python provision_scripts/configure_upload_preset.py",
-			"pr-predestroy": "python provision_scripts/remove_upload_preset.py",
+			"pr-predestroy": "python provision_scripts/remove_upload_preset.py"
 		}
 }

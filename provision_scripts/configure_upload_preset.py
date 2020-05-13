@@ -28,9 +28,8 @@ try:
 
 	except Exception as e:
 		print('Failed to update upload preset', e)
-'''if we hit this exception then the requested name is free for us to use
-and we will use it to create the upload preset'''
-
+#if we hit this exception then the requested name is free for us to use
+#and we will use it to create the upload preset
 except cloudinary.exceptions.NotFound as e:
 	try:
 		result = cloudinary.api.create_upload_preset(
