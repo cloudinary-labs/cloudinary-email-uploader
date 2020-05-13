@@ -15,7 +15,7 @@
 		"required": "true"
 		},
 	"CLOUDINARY_URL": {
-		"description": "This served as your authentication string for your cloudinary account. \n you can copy the calue from your cloudinary console",
+		"description": "This served as your authentication string for your cloudinary account, you can copy the calue from your cloudinary console",
 		"value" : "",
 		"required": "true"
 		}
