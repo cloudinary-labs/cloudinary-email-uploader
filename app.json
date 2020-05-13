@@ -13,6 +13,11 @@
 		"description": "The name of the upload preset you created within you cloudianry acoount",
 		"value" : "email_uploader",
 		"required": "true"
+		},
+	"CLOUDINARY_URL": {
+		"description": "This served as your authentication string for your cloudinary account. \n you can copy the calue from your cloudinary console",
+		"value" : "",
+		"required": "true"
 		}
 	},
 	"addons": [
@@ -20,5 +25,9 @@
 		"plan": "sendgrid:starter",
 		"as": "SENDGRID"
 		}
-	]
+	],
+	"scripts": {
+			"postdeploy": "python provision_scripts/configure_upload_preset.py",
+			"pr-predestroy": "python provision_scripts/remove_upload_preset.py",
+		}
 }
