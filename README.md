@@ -6,13 +6,14 @@
 
 	This app is part of a full flow desriced in a blog by cloudinary.
 
-# Ask not what you can do for the button, but what the button can do for you
+- How can you get one?
 
-	[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader)
-	Pushin the button will do the following:
-	1.Deploy the up-to-date code to heroku
-	2.Configure the upload preset in cloudinary for you
-	3.Create a free sendgrid account for you and attache it to the created dyno.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader)
+	
+Pushin the button will do the following:
+1.Deploy the up-to-date code to heroku
+2.Configure the upload preset in cloudinary for you
+3.Create a free sendgrid account for you and attache it to the created dyno.
 
 	Once that is done all you need to do is to attached your domain to sendgrid and start e-mailing.
 
