@@ -1,73 +1,72 @@
-# cloudinary-email-uploader
+## What Is This Tool?
+This tool, **cloudinary-email-uploader**, is a stand-alone, stateless app that listens for a webhook from SendGrid’s incoming parser. After detecting such a hook, the app ingests and uploads the content to Cloudinary as a Base64 asset.
 
-# What is this tool?
-	A standalone state-less app which will listen for a webhook coming from sendgrid incoming parser.
-	once such a hook in incoming it will ingest the hook contents and upload it to cloudinary as a base 64 asset.
-
-	This app is part of a full flow desriced in a blog by cloudinary.
-
-# How can you get one?
+cloudinary-email-uploader is part of a workflow described in this [post](https://cloudinary.com/blog/securely_uploading_images_to_cloudinary_by_email) in the Cloudinary blog.
+## How Can You Get the Tool?
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader)
-	
-##Pushin the button will do the following:
-1. Deploy the up-to-date code to heroku
-2. Configure the upload preset in cloudinary for you
-3. Create a free sendgrid account for you and attache it to the created dyno.
 
-Once that is done all you need to do is to attached your domain to sendgrid and start e-mailing.
+By clicking the above button, you—
 
-## What do we need to make it work? (Requirements)
-1. A Cloudinary account - Yes, a free one is just fine for this app to work.
-if you have yet to get one, you can sign up [here](https://cloudinary.com/signup)
-FYI - If you Click the "Deploy to Heroku" button  you will be asked to provide your CLOUDINARY URL,
-we need it so the app deployment scrip will do all the cloudinary related configuration for you.
-the app will also cleanup after itself' should you decide to deleate it one day.
+1. Deploy the latest code of cloudinary-email-uploader to your Heroku account.
+2. Configure the upload preset in Cloudinary.
+3. Create a free SendGrid account and attach it to the generated dyno (a container in Heroku lingo), which is a building block that powers the Heroku app cloudinary-email-uploader.
 
-2. A Sendgrid account - Yes, a free account will do just fine and will provide you with all the options in this example
-if you have yet to get one, you can sign up [here](https://signup.sendgrid.com/)
-FYI - if you Click the "Deploy to Heroku" button - we will create one for you
+Afterwards, attach your domain to SendGrid and perform the configuration steps below.
+### Setting Up the Prerequisites 
+Set up the following:
 
-3. A domain of your own you can manage.
-you will need to add some records to it (MX records) telling the world you have an "email server" listening on thet place
+**A Cloudinary account.** [Sign up for a free account](https://cloudinary.com/signup), which is adequate for your purpose. Clicking the **Deploy to Heroku**' button elicits a prompt for your Cloudinary URL, which enables the application-deployment script to build all the Cloudinary-related configurations for you. Any time you delete cloudinary-email-uploader, it will “clean up after itself,” i.e., remove the upload preset from your Cloudinary account and the SendGrid account the app created.
 
-4. A place to run your code, we used heroku since we like it, but really any sort of service will do.
-Should you choose heroku a free account will do just fine.
-if you have yet to get one, you can sign up [here](https://signup.heroku.com/)
+**A SendGrid account.** A free account will also suffice. [Sign up on SendGrid](https://signup.sendgrid.com/). Clicking the **Deploy to Heroku** button creates an account for you, which is linked to the deployed instance of the code.
 
-## How to make it work? (The wiring stage, if you wish to do so yourself)
-1. You need to deploy a version of this code in your selected service provider (we used Heroku)
-choosing a name for the app will provide you with a url of it, Keep it!
+**A network domain of your own.** Be sure to add MX records to tell the world that you have an active email server. SendGrid guides you through that process.
 
-2. In your cloudinary account you will need setup an "unsigned upload preset".
-allowing the code to upload the images it is parsing from the e-mail attachments.
+**A server in which to run your code.** Heroku is our choice but feel free to pick another service. A [free Heroku account](https://signup.heroku.com/) will suffice.
 
-3. Login to your sendgrid account and setup an incoming parse flow at [Settings --> Inbound Parse](https://app.sendgrid.com/settings/parse)
-you will need to follow the instructions to add your domain, the whole process should not take more then 5 minutes
-during that process you will add the MX record to your domain.
-once the enrollment process is done you will be able to add a "Host & URL"
-	the host will be the value you used in your MX record i.e. "upload.your-domain.com"
-	the URL will be the value you got when you deployed your app i.e. "https://your-app.herokuapp.com/"
-	be sure to check the 2 boxes to activate the spam filter and forwarding the full MIME content.
+### Wiring the Tool
 
-4. Send a test email to your self !
-	the format is cloudname@upload.your-domain.com
-	the attached images should be a vailable in your cloudinary account in a moment
+Do the following:
+
+From your Cloudinary dashboard, copy the Cloudinary URL value (without the `CLOUDINARY_URL=` prefix).
 
 
-# Deploying the code
-Looking at the what you are looking to achive you can do one of two things:
-- Deploy It:
-	Click the deploy button and have a deployment of your own of this code (along with various automation specified in the begining on this readme file).
-	[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader)
-- Improve It:
-	Clone this repository and start playing around with this basic example of code.
-	you might want to customize this example and make it more suitable to your needs
-	or you might find a bug and you wish to suggest a PR with a fix or an improvement (both are welcome).
-	```bash
-	git clone https://github.com/talknopf/cloudinary-email-uploader
-	cd cloudinary-email-uploader
-	pip install -r requirements.txt
-	python cld-email-uploader.py
-	```
-	The local development environment will utilize port 80
+Deploy a version of the code in Heroku by clicking the **Deploy to Heroku** button.
+Parse the Cloudinary URL you copied and choose a name for the app and for the upload preset to be created for your Cloudinary account.
+
+Subsequent to deployment, cloudinary-email-uploader automatically configures your Cloudinary account, simultaneously creating a Sendgrid account that’s affiliated with the app.
+
+
+Log in to the SendGrid account by clicking the login link in the cloudinary-email-uploader’s Overview screen under Add-Ons. Next, set up an incoming parse flow by choosing [Settings > Inbound Parse](https://app.sendgrid.com/settings/parse) and then follow the instructions to add your domain.
+That enrollment process takes less than five minutes, during which you’ll also add the MX record to your domain.
+Now add the following under **Host & URL**:
+A host name, which is the value in your MX record, e.g., `upload.your-domain.com`.
+A URL, which is the one you received after deploying the app, e.g.,  [`https://your-app.herokuapp.com/`](https://your-app.herokuapp.com/). 
+**Important:** Select the two checkboxes to activate the spam filter and forward the full MIME content.
+Finally, send a test email to yourself at `cloudname@upload.your-domain.com` along with an image attachment. You’ll see the image in your Cloudinary Media Library within moments.
+If you have multiple cloud names (subaccounts), be sure to address your email to the correct one.
+
+### Deploying the Code
+Depending on your goal, do either of the following:
+
+* **Deploy the code.** Click the Deploy button for a deployment of your own along with the automation features described in this [Cloudinary post](https://cloudinary.com/blog/securely_uploading_images_to_cloudinary_by_email).
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader) 
+   
+* **Enhance the code.** Clone the repository and play around with that basic example to suit your needs. If you find a bug, we would appreciate your filing a pull request (PR) with a suggestion for a fix or an improvement.
+
+
+```bash
+git clone https://github.com/talknopf/cloudinary-email-uploader
+ cd cloudinary-email-uploader
+ pip install -r requirements.txt
+ python cld-email-uploader.py
+```
+
+
+Unless you’ve configured the environmental variable `PORT`, the local development environment runs on port 80 by default. Also, you can change the name of the upload preset on the development environment by setting the `UP_PRESET` variable. To facilitate development, both `PORT` and `UP_PRESET` contain default values, as follows:
+
+
+``` bash
+export PORT=80
+export UP_PRESET=’email_uploader’
+```

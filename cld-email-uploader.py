@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import os
 import json
+from retry import retry
 
 import cloudinary
 import cloudinary.uploader
@@ -13,6 +14,7 @@ app = Flask(__name__)
 config = Config()
 
 @app.route('/', methods=['POST'])
+@retry(tries=5, delay=2)
 def inbound_parse():
     """Process POST from Inbound Parse and print received data."""
     parse = Parse(config, request)
