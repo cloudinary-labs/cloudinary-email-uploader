@@ -4,7 +4,7 @@ This tool, **cloudinary-email-uploader**, is a stand-alone, stateless app that l
 cloudinary-email-uploader is part of a workflow described in this [post](https://cloudinary.com/blog/securely_uploading_images_to_cloudinary_by_email) in the Cloudinary blog.
 ## How Can You Get the Tool?
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/cloudinary-devs/cloudinary-email-uploader)
 
 By clicking the above button, you—
 
@@ -50,13 +50,13 @@ If you have multiple cloud names (subaccounts), be sure to address your email to
 Depending on your goal, do either of the following:
 
 * **Deploy the code.** Click the Deploy button for a deployment of your own along with the automation features described in this [Cloudinary post](https://cloudinary.com/blog/securely_uploading_images_to_cloudinary_by_email).
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/talknopf/cloudinary-email-uploader) 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/cloudinary-devs/cloudinary-email-uploader) 
    
 * **Enhance the code.** Clone the repository and play around with that basic example to suit your needs. If you find a bug, we would appreciate your filing a pull request (PR) with a suggestion for a fix or an improvement.
 
 
 ```bash
-git clone https://github.com/talknopf/cloudinary-email-uploader
+git clone https://github.com/cloudinary-devs/cloudinary-email-uploader
  cd cloudinary-email-uploader
  pip install -r requirements.txt
  python cld-email-uploader.py
