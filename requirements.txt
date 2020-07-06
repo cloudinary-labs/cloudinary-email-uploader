@@ -5,3 +5,4 @@ six==1.11.0
 pytest==3.8.2
 cloudinary
 sendgrid
+retry
